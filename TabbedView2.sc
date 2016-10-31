@@ -666,7 +666,7 @@ TabbedView2{
 	}
 
 	pr_removeTab{ arg index;
-		tabViews.removeAt(index);
+		//	tabViews.removeAt(index);
 		this.pr_refreshIndex;
 		if(tabViews.size>0){
 			this.focus(min(tabViews.size-1,focusHistory.index));
@@ -677,6 +677,13 @@ TabbedView2{
 		view.refresh;
 
 	}
+	clearAll{
+		tabViews.size.do{ arg x,i;
+			this.removeAt(x)
+		};
+		tabViews=[]
+	}
+
 
 	pr_refreshIndex{
 
